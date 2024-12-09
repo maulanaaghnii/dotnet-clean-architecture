@@ -1,6 +1,6 @@
-﻿namespace CleanArchitecture.Application.Features.UserFeatures.CreateUser;
+﻿namespace CleanArchitecture.Application.Features.UserFeatures.GetUserById;
 
-public sealed record CreateUserResponse
+public sealed record GetUserByIdResponse
 {
     public Guid Id { get; set; }
     public string Email { get; set; }

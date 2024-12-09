@@ -16,18 +16,20 @@ public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
     
     public void Create(T entity)
     {
+        entity.DateCreated = DateTime.UtcNow;
         Context.Add(entity);
     }
 
     public void Update(T entity)
     {
+        entity.DateUpdated = DateTimeOffset.UtcNow;
         Context.Update(entity);
     }
 
     public void Delete(T entity)
     {
-        entity.DateCreated = DateTimeOffset.UtcNow;
-        Context.Update(entity);
+        entity.DateDeleted = DateTimeOffset.UtcNow;
+        Context.Remove(entity);
     }
 
     public Task<T> Get(Guid id, CancellationToken cancellationToken)
